@@ -1,16 +1,4 @@
-import type { DocumentMeta, MDX } from 'contentlayer/dist/core';
-
-interface MdxDocument extends DocumentMeta {
-  [key: string]: any;
-  body: MDX;
-  type: string;
-}
-
-type Fields<D extends MdxDocument> = Omit<D, '_id' | '_raw' | 'body' | 'type'>;
-
-type DeepPartial<T> = T extends Record<string, unknown>
-  ? Partial<{ [P in keyof T]: DeepPartial<T[P]> }>
-  : T;
+import type { MdxDocument, Fields, DeepPartial } from "./types";
 
 /**
  * Generates a dummy MDX document with the given fields and properties, matching the given type.
@@ -33,24 +21,24 @@ type DeepPartial<T> = T extends Record<string, unknown>
  */
 export function dummy<D extends MdxDocument>(
   fields: Fields<D>,
-  properties?: DeepPartial<D>,
+  properties?: DeepPartial<D>
 ) {
   return {
-    _id: properties?._id || 'dummy',
+    _id: properties?._id || "dummy",
     _raw: {
-      contentType: 'mdx',
-      flattenedPath: 'posts/dummy',
-      sourceFileDir: 'posts',
-      sourceFileName: 'dummy-post.mdx',
-      sourceFilePath: 'posts/dummy-post.mdx',
+      contentType: "mdx",
+      flattenedPath: "posts/dummy",
+      sourceFileDir: "posts",
+      sourceFileName: "dummy-post.mdx",
+      sourceFilePath: "posts/dummy-post.mdx",
       ...properties?._raw,
-    } as D['_raw'],
+    } as D["_raw"],
     body: {
-      code: '',
-      raw: 'dummy document raw content',
+      code: "",
+      raw: "dummy document raw content",
       ...properties?.body,
     },
-    type: properties?.type || 'dummy',
+    type: properties?.type || "dummy",
     ...fields,
   } as D;
 }
@@ -78,12 +66,12 @@ export function dummy<D extends MdxDocument>(
 export function dummies<D extends MdxDocument>(
   count: number,
   fields: Fields<D> | ((index: number) => Fields<D>),
-  properties?: DeepPartial<D> | ((index: number) => DeepPartial<D>),
+  properties?: DeepPartial<D> | ((index: number) => DeepPartial<D>)
 ) {
   return Array.from({ length: count }, (_, index) => {
     return dummy(
-      typeof fields === 'function' ? fields(index) : fields,
-      typeof properties === 'function' ? properties(index) : properties,
+      typeof fields === "function" ? fields(index) : fields,
+      typeof properties === "function" ? properties(index) : properties
     );
   });
 }
