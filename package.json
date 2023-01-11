@@ -1,6 +1,6 @@
 {
   "name": "contentlayer-mock",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Generate typed mocks for Contentlayer documents",
   "main": "index.ts",
   "scripts": {
