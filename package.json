@@ -1,0 +1,14 @@
+{
+  "name": "contentlayer-mock",
+  "version": "0.0.1",
+  "description": "Generate typed mocks for Contentlayer documents",
+  "main": "index.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\""
+  },
+  "author": "Kfir Fitousi kfirfitousi@gmail.com",
+  "license": "ISC",
+  "dependencies": {
+    "contentlayer": "0.2.9"
+  }
+}
