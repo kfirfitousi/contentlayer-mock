@@ -38,7 +38,7 @@ export function dummy<D extends MdxDocument>(
       raw: "dummy document raw content",
       ...properties?.body,
     },
-    type: properties?.type || "dummy",
+    type: properties?.type || "Post",
     ...fields,
   } as D;
 }
