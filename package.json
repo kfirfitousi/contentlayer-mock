@@ -2,6 +2,7 @@
   "name": "contentlayer-mock",
   "version": "0.0.2",
   "description": "Generate typed mocks for Contentlayer documents",
+  "repository": "https://github.com/kfirfitousi/contentlayer-mock",
   "main": "index.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\""
