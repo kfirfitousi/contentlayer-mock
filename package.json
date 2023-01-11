@@ -3,13 +3,20 @@
   "version": "0.0.3",
   "description": "Generate typed mocks for Contentlayer documents",
   "repository": "https://github.com/kfirfitousi/contentlayer-mock",
-  "main": "index.ts",
+  "main": "./lib/index.js",
+  "files": [
+    "lib"
+  ],
   "scripts": {
+    "build": "npx tsc",
     "test": "echo \"Error: no test specified\""
   },
   "author": "Kfir Fitousi kfirfitousi@gmail.com",
   "license": "ISC",
   "dependencies": {
     "contentlayer": "0.2.9"
+  },
+  "devDependencies": {
+    "typescript": "^4.9.4"
   }
 }
