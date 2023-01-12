@@ -1,6 +1,6 @@
 {
   "name": "contentlayer-mock",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Generate typed mocks for Contentlayer documents",
   "repository": "https://github.com/kfirfitousi/contentlayer-mock",
   "main": "./lib/index.js",
