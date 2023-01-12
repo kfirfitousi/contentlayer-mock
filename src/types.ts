@@ -1,16 +1,17 @@
-import type { DocumentMeta, MDX } from "contentlayer/dist/core";
+import type { MDX } from "contentlayer/dist/core";
+import type { RawDocumentData } from "contentlayer/dist/source-files";
+import type { PartialDeep } from "type-fest";
 
-export interface MdxDocument extends DocumentMeta {
-  [key: string]: any;
+type DocumentMeta = {
+  _id: string;
+  _raw: RawDocumentData;
+};
+
+export type Document = DocumentMeta & {
   body: MDX;
   type: string;
-}
+};
 
-export type Fields<D extends MdxDocument> = Omit<
-  D,
-  "_id" | "_raw" | "body" | "type"
->;
+type Fields<D extends Document> = Omit<D, keyof DocumentMeta | "body" | "type">;
 
-export type DeepPartial<T> = T extends Record<string, unknown>
-  ? Partial<{ [P in keyof T]: DeepPartial<T[P]> }>
-  : T;
+export type Properties<D extends Document> = Fields<D> & PartialDeep<Document>;

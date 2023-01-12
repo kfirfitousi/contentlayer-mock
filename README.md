@@ -8,7 +8,7 @@ Generate typed mocks for Contentlayer documents.
 
 ### Generate a mocked document
 
-`dummy` generates a single mocked document. The first argument, `fields`, must contain all required fields of the document type.
+`dummy` generates a single mocked document. The argument `properties` must contain all required fields of the document type.
 
 ```ts
 import { type Post } from "contentlayer/generated";
@@ -40,21 +40,17 @@ const dummyPost: Post = {
 };
 ```
 
-The second argument, `properties`, is optional and can be used to overwrite the default properties of the document.
+`properties` can also be used to overwrite the default properties of the document.
 
 ```ts
-const dummyPost = dummy<Post>(
-  {
-    title: "Dummy Post",
-    description: "This is a dummy post",
+const dummyPost = dummy<Post>({
+  title: "Dummy Post",
+  description: "This is a dummy post",
+  _id: "custom-id",
+  body: {
+    raw: "custom raw content",
   },
-  {
-    _id: "custom-id",
-    body: {
-      raw: "custom raw content",
-    },
-  }
-);
+});
 
 dummyPost._id; // "custom-id"
 dummyPost.body.raw; // "custom raw content"
@@ -62,56 +58,41 @@ dummyPost.body.raw; // "custom raw content"
 
 ### Generate an array of mocked documents
 
-`dummies` generates an array of mocked documents. The first argument, `length`, is the number of documents to generate. The second argument, `fields`, must contain all required fields of the document type.
+`dummyArray` generates an array of mocked documents. The first argument, `length`, is the number of documents to generate. The second argument, `properties`, must contain all required fields of the document type.
 
 ```ts
 import { type Post } from "contentlayer/generated";
-import { dummies } from "contentlayer-mock";
+import { dummyArray } from "contentlayer-mock";
 
-const dummyPosts = dummies<Post>(10, {
+const dummyPosts = dummyArray<Post>(10, {
   title: "Dummy Post",
   description: "This is a dummy post",
 });
 ```
 
-You can also pass a function to `fields` to generate different values for each document.
+`properties` can also be used to overwrite the default properties of the documents.
 
 ```ts
-const dummyPosts = dummies<Post>(10, (index) => ({
-  title: `Dummy Post ${index}`,
-  description: `This is a dummy post ${index}`,
-}));
-```
-
-The third argument, `properties`, is optional and can be used to overwrite the default properties of the documents.
-
-```ts
-const dummyPosts = dummies<Post>(
-  10,
-  {
-    title: "Dummy Post",
-    description: "This is a dummy post",
+const dummyPosts = dummyArray<Post>(10, {
+  title: "Dummy Post",
+  description: "This is a dummy post",
+  _id: "custom-id",
+  _raw: {
+    flattenedPath: "posts/custom-id",
   },
-  {
-    _id: "custom-id",
-    _raw: {
-      flattenedPath: "posts/custom-id",
-    },
-  }
-);
+});
 ```
 
 You can also pass a function to `properties` to generate different values for each document.
 
 ```ts
-const dummyPosts = dummies<Post>(
-  10,
-  {
-    title: "Dummy Post",
-    description: "This is a dummy post",
-  },
-  (index) => ({
-    _id: `custom-id-${index}`,
-  })
-);
+const dummyPosts = dummyArray<Post>(10, (index) => ({
+  title: `Dummy Post ${index}`,
+  description: `This is a dummy post ${index}`,
+  _id: `custom-id-${index}`,
+}));
 ```
+
+## Limitations
+
+Currently only supports `mdx` documents.
