@@ -1,5 +1,11 @@
 # contentlayer-mock
 
+## 0.0.11
+
+### Patch Changes
+
+- 9d6be5b: Add NPM_TOKEN to action env
+
 ## 0.0.10
 
 ### Patch Changes
