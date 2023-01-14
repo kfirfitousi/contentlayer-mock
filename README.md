@@ -1,8 +1,9 @@
 # contentlayer-mock
 
-Generate typed mocks for Contentlayer documents.
+Generate typed mocks for [Contentlayer](https://github.com/contentlayerdev/contentlayer) documents.
 
-[![npm version](https://badge.fury.io/js/contentlayer-mock.svg)](https://badge.fury.io/js/contentlayer-mock)
+![npm version](https://img.shields.io/npm/v/contentlayer-mock?style=flat-square)
+![size](https://img.shields.io/bundlephobia/min/contentlayer-mock?style=flat-square)
 
 ## Usage
 
