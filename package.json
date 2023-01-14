@@ -1,22 +1,23 @@
 {
   "name": "contentlayer-mock",
   "version": "0.0.8",
+  "license": "MIT",
+  "author": "Kfir Fitousi kfirfitousi@gmail.com",
   "description": "Generate typed mocks for Contentlayer documents",
   "repository": "https://github.com/kfirfitousi/contentlayer-mock",
-  "main": "./lib/index.js",
-  "files": [
-    "lib"
-  ],
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
-    "build": "npx tsc",
-    "test": "echo \"Error: no test specified\""
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "lint": "tsc"
   },
-  "author": "Kfir Fitousi kfirfitousi@gmail.com",
-  "license": "ISC",
   "dependencies": {
     "contentlayer": "0.2.9"
   },
   "devDependencies": {
+    "@changesets/cli": "^2.26.0",
+    "tsup": "^6.5.0",
     "typescript": "^4.9.4"
   }
 }
