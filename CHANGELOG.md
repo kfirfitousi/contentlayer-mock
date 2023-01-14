@@ -1,5 +1,11 @@
 # contentlayer-mock
 
+## 0.0.10
+
+### Patch Changes
+
+- c3d81ad: Fixing npm publish with changeset
+
 ## 0.0.9
 
 ### Patch Changes
