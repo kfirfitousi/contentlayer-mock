@@ -1,6 +1,6 @@
 {
   "name": "contentlayer-mock",
-  "version": "0.0.11",
+  "version": "0.0.8",
   "license": "MIT",
   "author": "Kfir Fitousi kfirfitousi@gmail.com",
   "description": "Generate typed mocks for Contentlayer documents",
@@ -10,7 +10,8 @@
   "types": "dist/index.d.ts",
   "scripts": {
     "build": "tsup src/index.ts --format cjs,esm --dts",
-    "lint": "tsc"
+    "lint": "tsc",
+    "publish": "pnpm run build && pnpm changeset publish"
   },
   "dependencies": {
     "contentlayer": "0.2.9",
