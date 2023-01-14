@@ -1,6 +1,6 @@
 {
   "name": "contentlayer-mock",
-  "version": "0.0.9",
+  "version": "0.0.10",
   "license": "MIT",
   "author": "Kfir Fitousi kfirfitousi@gmail.com",
   "description": "Generate typed mocks for Contentlayer documents",

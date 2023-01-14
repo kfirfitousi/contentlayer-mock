@@ -1,5 +1,11 @@
 # contentlayer-mock
 
+## 0.0.10
+
+### Patch Changes
+
+- b2f235c: Only include dist folder in npm package
+
 ## 0.0.11
 
 ### Patch Changes
