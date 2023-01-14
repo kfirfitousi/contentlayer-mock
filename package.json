@@ -13,7 +13,8 @@
     "lint": "tsc"
   },
   "dependencies": {
-    "contentlayer": "0.2.9"
+    "contentlayer": "0.2.9",
+    "type-fest": "^3.5.1"
   },
   "devDependencies": {
     "@changesets/cli": "^2.26.0",
