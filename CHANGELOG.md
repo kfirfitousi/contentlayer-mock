@@ -1,5 +1,11 @@
 # contentlayer-mock
 
+## 0.0.11
+
+### Patch Changes
+
+- d7b0d2a: Add license, update readme
+
 ## 0.0.10
 
 ### Patch Changes
